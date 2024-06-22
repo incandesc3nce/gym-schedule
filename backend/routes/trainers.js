@@ -65,7 +65,7 @@ router.patch('/:id', getTrainer, async (req, res) => {
 // delete one
 router.delete('/:id', getTrainer, async (req, res) => {
   try {
-    await res.trainer.remove();
+    await res.trainer.deleteOne();
     res.json({ message: 'Deleted trainer' });
   } catch (err) {
     res.status(500).json({ message: err.message });
