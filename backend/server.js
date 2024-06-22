@@ -11,4 +11,13 @@ db.once('open', () => console.log('Connected to Database'));
 
 app.use(express.json());
 
+
+
+const trainersRouter = require('./routes/trainers.js');
+
+
+app.use('/trainers', trainersRouter);
+
+
+
 app.listen(3000, () => console.log('Server started'));
