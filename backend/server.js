@@ -15,11 +15,11 @@ app.use(express.json());
 
 const trainersRouter = require('./routes/trainers.js');
 const membersRouter = require('./routes/members.js');
-
+const trainingsRouter = require('./routes/trainings.js');
 
 app.use('/trainers', trainersRouter);
 app.use('/members', membersRouter);
-
+app.use('/trainings', trainingsRouter);
 
 
 app.listen(3000, () => console.log('Server started'));
