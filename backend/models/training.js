@@ -9,9 +9,10 @@ const trainingSchema = new mongoose.Schema({
   members: { 
     type: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Member',
-        required: true
+        member: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true
+        }
       }
     ],
     required: true
