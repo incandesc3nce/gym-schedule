@@ -14,9 +14,11 @@ app.use(express.json());
 
 
 const trainersRouter = require('./routes/trainers.js');
+const membersRouter = require('./routes/members.js');
 
 
 app.use('/trainers', trainersRouter);
+app.use('/members', membersRouter);
 
 
 
