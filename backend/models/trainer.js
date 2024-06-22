@@ -19,7 +19,22 @@ const trainerSchema = new mongoose.Schema({
     default: 'Общая'
   },
   available_times: {
-    type: Array,
+    type: [
+      {
+        date: {
+          type: Date,
+          required: true
+        },
+        start_time: {
+          type: String,
+          required: true
+        },
+        end_time: {
+          type: String,
+          required: true
+        }
+      }
+    ],
     required: false
   }
 });
