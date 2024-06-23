@@ -132,6 +132,10 @@ th, td {
   width: 32%;
 
   padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card .name {
