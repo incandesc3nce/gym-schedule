@@ -2,26 +2,27 @@
   "name": "gym-schedule",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "devStart": "nodemon ./backend/server.js",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "webpack --config ./frontend/webpack.config.js",
+    "watch": "webpack --watch --config ./frontend/webpack.config.js"
   },
   "author": "incandesc3nce <incandesc3ncee@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "mongoose": "^8.4.3"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
-    "nodemon": "^3.1.4",
-    "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4",
     "css-loader": "^7.1.2",
-    "style-loader": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "html-loader": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
-    "html-loader": "^5.0.0"
+    "nodemon": "^3.1.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
