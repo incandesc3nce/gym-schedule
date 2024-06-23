@@ -19,7 +19,8 @@ const memberSchema = new mongoose.Schema({
   },
   active_member: {
     type: Boolean,
-    required: true
+    required: false,
+    default: true
   },
   member_since: {
     type: Date,
