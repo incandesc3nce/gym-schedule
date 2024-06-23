@@ -13,6 +13,9 @@ export const createTrainersCards = async () => {
     const card = document.createElement('div');
     card.classList.add('card');
 
+    const mainInfo = document.createElement('div');
+    
+
     const name = document.createElement('h2');
     name.classList.add('name');
     name.textContent = `${trainer.name} ${trainer.surname}`;
@@ -20,6 +23,9 @@ export const createTrainersCards = async () => {
     const specialty = document.createElement('p');
     specialty.classList.add('specialty');
     specialty.textContent = trainer.specialty;
+
+    mainInfo.appendChild(name);
+    mainInfo.appendChild(specialty);
 
     const description = document.createElement('p');
     description.classList.add('description');
@@ -51,8 +57,7 @@ export const createTrainersCards = async () => {
     contacts.appendChild(phone);
     contacts.appendChild(email);
 
-    card.appendChild(name);
-    card.appendChild(specialty);
+    card.appendChild(mainInfo);
     card.appendChild(description);
     card.appendChild(contacts);
 
