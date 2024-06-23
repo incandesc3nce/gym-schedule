@@ -27,7 +27,8 @@ router.post('/', async (req, res) => {
     middle_name: req.body.middle_name,
     email: req.body.email,
     phone: req.body.phone,
-    specialty: req.body.specialty
+    specialty: req.body.specialty,
+    description: req.body.description
   });
 
   try {
@@ -57,6 +58,9 @@ router.patch('/:id', getTrainer, async (req, res) => {
   }
   if (req.body.specialty != null) {
     res.trainer.specialty = req.body.specialty;
+  }
+  if (req.body.description != null) {
+    res.trainer.description = req.body.description;
   }
   try {
     const updatedTrainer = await res.trainer.save();
