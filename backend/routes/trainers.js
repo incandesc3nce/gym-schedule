@@ -25,6 +25,8 @@ router.post('/', async (req, res) => {
     surname: req.body.surname,
     name: req.body.name,
     middle_name: req.body.middle_name,
+    email: req.body.email,
+    phone: req.body.phone,
     specialty: req.body.specialty
   });
 
@@ -46,6 +48,12 @@ router.patch('/:id', getTrainer, async (req, res) => {
   }
   if (req.body.middle_name != null) {
     res.trainer.middle_name = req.body.middle_name;
+  }
+  if (req.body.email != null) {
+    res.trainer.email = req.body.email;
+  }
+  if (req.body.phone != null) {
+    res.trainer.phone = req.body.phone;
   }
   if (req.body.specialty != null) {
     res.trainer.specialty = req.body.specialty;

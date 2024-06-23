@@ -13,6 +13,14 @@ const trainerSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  email: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
+  },
   specialty: {
     type: String,
     required: true,
