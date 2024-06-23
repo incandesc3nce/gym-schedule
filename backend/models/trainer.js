@@ -25,6 +25,10 @@ const trainerSchema = new mongoose.Schema({
     type: String,
     required: true,
     default: 'Общая'
+  },
+  description: {
+    type: String,
+    required: false
   }
 });
 
