@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon ./backend/server.js"
+    "devStart": "nodemon ./backend/server.js",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "author": "incandesc3nce <incandesc3ncee@gmail.com>",
   "license": "MIT",
