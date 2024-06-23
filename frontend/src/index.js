@@ -1,5 +1,5 @@
 import { createTrainingsTable } from "./modules/createTrainingsTable";
-
+import { createTrainersCards } from "./modules/createTrainersCards";
 import './style.css';
 
 const removeChildren = (parent) => {
@@ -18,14 +18,11 @@ const listenerFactory = () => {
   const trainersHandler = (event) => {
     event.preventDefault();
     removeChildren(document.querySelector('#content'));
+    createTrainersCards();
   };
 
   return {scheduleHandler, trainersHandler};
 };
-
-
-
-
 
 
 const navHandler = (function(){
@@ -36,4 +33,5 @@ const navHandler = (function(){
   const addBtn = document.querySelector('#add');
 
   scheduleBtn.addEventListener('click', scheduleHandler);
+  trainersBtn.addEventListener('click', trainersHandler);
 })();
