@@ -116,3 +116,41 @@ th, td {
   border: 1px solid var(--text-color);
   padding: 0.5em;
 }
+
+
+.card-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.card {
+  border: 3px solid var(--heading-color);
+  border-radius: 10px;
+
+  width: 32%;
+
+  padding: 1em;
+}
+
+.card .name {
+  text-align: center;
+}
+
+.card .specialty {
+  text-align: center;
+  font-weight: 600;
+}
+
+.card .description {
+  text-align: justify;
+}
+
+.card .specialty, .card .description {
+  padding-bottom: 1em;
+}
+
+.card .label {
+  font-weight: 600;
+}
