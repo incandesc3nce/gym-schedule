@@ -1,6 +1,6 @@
-import { getTrainings } from './requests/getTrainings';
-import { getTrainers } from './requests/getTrainers';
-import { formatDate } from './formatDate';
+import { getTrainings } from "./requests/getTrainings";
+import { getTrainers } from "./requests/getTrainers";
+import { formatDate } from "./helpers/formatDate";
 
 const sortSchedule = (arr) => {
   return arr.sort((a, b) => {
@@ -11,38 +11,38 @@ const sortSchedule = (arr) => {
       return dateA - dateB;
     }
 
-    const timeA = a.start_time.split(':').map(Number);
-    const timeB = b.start_time.split(':').map(Number);
+    const timeA = a.start_time.split(":").map(Number);
+    const timeB = b.start_time.split(":").map(Number);
 
     if (timeA[0] !== timeB[0]) {
       return timeA[0] - timeB[0];
     }
 
     return timeA[1] - timeB[1];
-  })
-}
+  });
+};
 
 export const createTrainingsTable = async () => {
   const trainings = await getTrainings();
   const trainers = await getTrainers();
 
-  const content = document.querySelector('#content');
-  const table = document.createElement('table');
+  const content = document.querySelector("#content");
+  const table = document.createElement("table");
 
-  const tableHeader = document.createElement('tr');
-  const tableHeaderDate = document.createElement('th');
-  tableHeaderDate.textContent = 'Дата';
-  const tableHeaderStartTime = document.createElement('th');
-  tableHeaderStartTime.textContent = 'Начало';
-  const tableHeaderEndTime = document.createElement('th');
-  tableHeaderEndTime.textContent = 'Конец';
-  const tableHeaderType = document.createElement('th');
-  tableHeaderType.textContent = 'Тип тренировки';
-  const tableHeaderGroupSize = document.createElement('th');
-  tableHeaderGroupSize.textContent = 'Размер группы';
-  const tableHeaderTrainer = document.createElement('th');
-  tableHeaderTrainer.textContent = 'Тренер';
-  
+  const tableHeader = document.createElement("tr");
+  const tableHeaderDate = document.createElement("th");
+  tableHeaderDate.textContent = "Дата";
+  const tableHeaderStartTime = document.createElement("th");
+  tableHeaderStartTime.textContent = "Начало";
+  const tableHeaderEndTime = document.createElement("th");
+  tableHeaderEndTime.textContent = "Конец";
+  const tableHeaderType = document.createElement("th");
+  tableHeaderType.textContent = "Тип тренировки";
+  const tableHeaderGroupSize = document.createElement("th");
+  tableHeaderGroupSize.textContent = "Размер группы";
+  const tableHeaderTrainer = document.createElement("th");
+  tableHeaderTrainer.textContent = "Тренер";
+
   tableHeader.appendChild(tableHeaderDate);
   tableHeader.appendChild(tableHeaderStartTime);
   tableHeader.appendChild(tableHeaderEndTime);
@@ -55,31 +55,33 @@ export const createTrainingsTable = async () => {
   const sortedTrainings = sortSchedule(trainings);
 
   for (let i = 0; i < sortedTrainings.length; i++) {
-    const trainer = trainers.find(trainer => trainer._id === sortedTrainings[i].trainer);
-    
-    const tableRow = document.createElement('tr');
+    const trainer = trainers.find(
+      (trainer) => trainer._id === sortedTrainings[i].trainer
+    );
 
-    const tableRowDate = document.createElement('td');
+    const tableRow = document.createElement("tr");
+
+    const tableRowDate = document.createElement("td");
     const date = new Date(sortedTrainings[i].date);
     const formattedDate = formatDate(date);
 
     tableRowDate.textContent = formattedDate;
 
-    const tableRowStartTime = document.createElement('td');
+    const tableRowStartTime = document.createElement("td");
     tableRowStartTime.textContent = sortedTrainings[i].start_time;
 
-    const tableRowEndTime = document.createElement('td');
+    const tableRowEndTime = document.createElement("td");
     tableRowEndTime.textContent = sortedTrainings[i].end_time;
 
-    const tableRowType = document.createElement('td');
+    const tableRowType = document.createElement("td");
     tableRowType.textContent = trainer.specialty;
 
-    const tableRowGroupSize = document.createElement('td');
+    const tableRowGroupSize = document.createElement("td");
     tableRowGroupSize.textContent = sortedTrainings[i].members.length;
 
-    const tableRowTrainer = document.createElement('td');
+    const tableRowTrainer = document.createElement("td");
     tableRowTrainer.textContent = `${trainer.name} ${trainer.surname}`;
-    
+
     tableRow.appendChild(tableRowDate);
     tableRow.appendChild(tableRowStartTime);
     tableRow.appendChild(tableRowEndTime);
@@ -91,4 +93,4 @@ export const createTrainingsTable = async () => {
   }
 
   content.appendChild(table);
-}
+};

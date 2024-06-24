@@ -1,5 +1,5 @@
 import { getMembers } from "./requests/getMembers";
-import { formatDate } from "./formatDate";
+import { formatDate } from "./helpers/formatDate";
 
 export const createMembersTable = async () => {
   const members = await getMembers();
@@ -50,7 +50,7 @@ export const createMembersTable = async () => {
     const tableRowSince = document.createElement("td");
     const date = new Date(member.member_since);
     const formattedDate = formatDate(date);
-    
+
     tableRowSince.textContent = formattedDate;
 
     tableRow.appendChild(tableRowSurname);
