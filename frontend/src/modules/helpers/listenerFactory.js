@@ -3,6 +3,7 @@ import { createTrainersCards } from "../content/createTrainersCards";
 import { createMembersTable } from "../content/createMembersTable";
 
 import { createNav } from "../content/forms/createNav";
+import { createMemberForm } from "../content/forms/createMemberForm";
 import { createTrainerForm } from "../content/forms/createTrainerForm";
 
 const removeChildren = (parent) => {
@@ -92,6 +93,17 @@ const swapAddActiveButton = (event) => {
 };
 
 export const formFactory = () => {
+  const memberFormHandler = (event) => {
+    const formContainer = document.querySelector('#form-container');
+    
+    event.preventDefault();
+    swapAddActiveButton(event);
+    removeChildren(formContainer);
+    const memberForm = createMemberForm();
+    
+    formContainer.appendChild(memberForm);
+  };
+  
   const trainerFormHandler = (event) => {
     const formContainer = document.querySelector('#form-container');
     
@@ -103,5 +115,7 @@ export const formFactory = () => {
     formContainer.appendChild(trainerForm);
   };
 
-  return {trainerFormHandler};
+
+
+  return {trainerFormHandler, memberFormHandler};
 };
