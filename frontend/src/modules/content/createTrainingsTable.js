@@ -39,7 +39,7 @@ export const createTrainingsTable = async () => {
   const tableHeaderType = document.createElement("th");
   tableHeaderType.textContent = "Тип тренировки";
   const tableHeaderGroupSize = document.createElement("th");
-  tableHeaderGroupSize.textContent = "Размер группы";
+  tableHeaderGroupSize.textContent = "Придет (n человек)";
   const tableHeaderTrainer = document.createElement("th");
   tableHeaderTrainer.textContent = "Тренер";
 
