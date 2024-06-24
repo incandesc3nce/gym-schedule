@@ -1,4 +1,4 @@
-import { getTrainers } from './requests/getTrainers';
+import { getTrainers } from '../requests/getTrainers';
 
 export const createTrainersCards = async () => {
   const trainers = await getTrainers();

@@ -1,6 +1,6 @@
-import { createTrainingsTable } from "../createTrainingsTable";
-import { createTrainersCards } from "../createTrainersCards";
-import { createMembersTable } from "../createMembersTable";
+import { createTrainingsTable } from "../content/createTrainingsTable";
+import { createTrainersCards } from "../content/createTrainersCards";
+import { createMembersTable } from "../content/createMembersTable";
 
 const removeChildren = (parent) => {
   while (parent.firstChild) {

@@ -1,6 +1,6 @@
-import { getTrainings } from "./requests/getTrainings";
-import { getTrainers } from "./requests/getTrainers";
-import { formatDate } from "./helpers/formatDate";
+import { getTrainings } from "../requests/getTrainings";
+import { getTrainers } from "../requests/getTrainers";
+import { formatDate } from "../helpers/formatDate";
 
 const sortSchedule = (arr) => {
   return arr.sort((a, b) => {
