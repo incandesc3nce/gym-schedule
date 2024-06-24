@@ -1,3 +1,6 @@
+import { createObject } from "../../helpers/createObject";
+import { postTrainer } from "../../requests/postTrainer";
+
 export const createTrainerForm = () => {
   const trainerForm = document.createElement('form');
   trainerForm.classList.add('submit-form');
@@ -72,13 +75,14 @@ export const createTrainerForm = () => {
   const specialty = document.createElement('div');
 
   const specialtyLabel = document.createElement('label');
-  specialtyLabel.textContent = 'Специальность';
+  specialtyLabel.textContent = 'Специальность*';
 
   const specialtyInput = document.createElement('input');
   specialtyInput.setAttribute('type', 'text');
   specialtyInput.setAttribute('name', 'specialty');
   specialtyInput.setAttribute('id', 'specialty');
   specialtyInput.setAttribute('placeholder', 'Общая');
+  specialtyInput.required = true;
 
   specialty.appendChild(specialtyLabel);
   specialty.appendChild(specialtyInput);
@@ -100,11 +104,21 @@ export const createTrainerForm = () => {
   submit.textContent = 'Добавить';
   submit.setAttribute('id', 'submit');
 
+  submit.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const trainerObject = createObject(trainerForm);
+    await postTrainer(trainerObject);
+
+    console.log('Trainer added');
+
+    trainerForm.reset();
+  });
+
   trainerForm.appendChild(surname);
   trainerForm.appendChild(name);
   trainerForm.appendChild(middleName);
-  trainerForm.appendChild(phone);
   trainerForm.appendChild(email);
+  trainerForm.appendChild(phone);
   trainerForm.appendChild(specialty);
   trainerForm.appendChild(description);
   trainerForm.appendChild(submit);
