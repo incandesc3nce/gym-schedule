@@ -4,7 +4,7 @@ import './style.css';
 
 const navHandler = (function(){
   const {scheduleHandler, trainersHandler, membersHandler, addHandler} = listenerFactory();
-  const {trainerFormHandler, memberFormHandler} = formFactory();
+  const {trainingFormHandler,trainerFormHandler, memberFormHandler} = formFactory();
 
   const scheduleBtn = document.querySelector('#schedule');
   const trainersBtn = document.querySelector('#trainers');
@@ -21,6 +21,7 @@ const navHandler = (function(){
     const addTrainer = document.querySelector('#add-trainer');
     const addMember = document.querySelector('#add-member');
 
+    addTraining.addEventListener('click', trainingFormHandler);
     addTrainer.addEventListener('click', trainerFormHandler);
     addMember.addEventListener('click', memberFormHandler);
   });
