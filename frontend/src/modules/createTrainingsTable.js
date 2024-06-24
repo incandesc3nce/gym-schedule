@@ -1,5 +1,6 @@
 import { getTrainings } from './requests/getTrainings';
 import { getTrainers } from './requests/getTrainers';
+import { formatDate } from './formatDate';
 
 const sortSchedule = (arr) => {
   return arr.sort((a, b) => {
@@ -60,10 +61,7 @@ export const createTrainingsTable = async () => {
 
     const tableRowDate = document.createElement('td');
     const date = new Date(sortedTrainings[i].date);
-    const day = date.getDate();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-    const formattedDate = `${day}.${month}.${year}`;
+    const formattedDate = formatDate(date);
 
     tableRowDate.textContent = formattedDate;
 
