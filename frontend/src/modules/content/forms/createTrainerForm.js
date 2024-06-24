@@ -108,9 +108,6 @@ export const createTrainerForm = () => {
     event.preventDefault();
     const trainerObject = createObject(trainerForm);
     await postTrainer(trainerObject);
-
-    console.log('Trainer added');
-
     trainerForm.reset();
   });
 
