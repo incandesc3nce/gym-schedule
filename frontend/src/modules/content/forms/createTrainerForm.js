@@ -109,6 +109,8 @@ export const createTrainerForm = () => {
     const trainerObject = createObject(trainerForm);
     await postTrainer(trainerObject);
     trainerForm.reset();
+
+    alert('Тренер добавлен');
   });
 
   trainerForm.appendChild(surname);
