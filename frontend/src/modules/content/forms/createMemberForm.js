@@ -1,4 +1,5 @@
 import { createObject } from "../../helpers/createObject";
+import { postMember } from "../../requests/postMember";
 
 export const createMemberForm = () => {
   const memberForm = document.createElement("form");
@@ -56,6 +57,15 @@ export const createMemberForm = () => {
   submit.textContent = "Добавить";
   submit.setAttribute("type", "submit");
   submit.setAttribute('id', 'submit');
+
+  submit.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const memberObject = createObject(memberForm);
+    await postMember(memberObject);
+    memberForm.reset();
+
+    alert("Посетитель добавлен");
+  });
 
   memberForm.appendChild(surname);
   memberForm.appendChild(name);
