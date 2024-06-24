@@ -12,12 +12,18 @@ const getActiveButton = () => document.querySelector('.btn-active');
 
 const swapActiveButton = (event) => {
   const activeButton = getActiveButton();
-  activeButton.classList.remove('btn-active');
-  activeButton.classList.add('btn-inactive');
-  
-  const clickedButton = event.target;
-  clickedButton.classList.remove('btn-inactive');
-  clickedButton.classList.add('btn-active');
+
+  if (activeButton) {
+    activeButton.classList.remove('btn-active');
+    activeButton.classList.add('btn-inactive');
+    
+    const clickedButton = event.target;
+    clickedButton.classList.remove('btn-inactive');
+    clickedButton.classList.add('btn-active');
+  } else {
+    event.target.classList.add('btn-active');
+    event.target.classList.remove('btn-inactive');
+  }
 };
 
 const listenerFactory = () => {
