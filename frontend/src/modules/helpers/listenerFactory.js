@@ -1,3 +1,7 @@
+import { createTrainingsTable } from "../createTrainingsTable";
+import { createTrainersCards } from "../createTrainersCards";
+import { createMembersTable } from "../createMembersTable";
+
 const removeChildren = (parent) => {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -22,7 +26,7 @@ const swapActiveButton = (event) => {
   }
 };
 
-const listenerFactory = () => {
+export const listenerFactory = () => {
   const scheduleHandler = (event) => {
     event.preventDefault();
     swapActiveButton(event);

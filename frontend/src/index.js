@@ -1,6 +1,3 @@
-import { createTrainingsTable } from "./modules/createTrainingsTable";
-import { createTrainersCards } from "./modules/createTrainersCards";
-import { createMembersTable } from "./modules/createMembersTable";
 import { listenerFactory } from "./modules/helpers/listenerFactory";
 import './style.css';
 
