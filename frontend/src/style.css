@@ -183,7 +183,7 @@ nav .btn-add-inactive:hover, nav .btn-query-inactive:hover {
   color: var(--btn-add-inactive);
 }
 
-.add-container {
+.add-container, .query-container {
   display: grid;
   grid-template-rows: 0.7fr 4fr;
 }
