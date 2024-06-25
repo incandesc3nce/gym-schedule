@@ -167,19 +167,19 @@ button:hover {
   cursor: pointer;
 }
 
-.add-container nav button {
+.add-container nav button, .query-container nav button {
   padding: 2em 0.5em;
   height: 50%;
 }
-nav .btn-add-inactive:hover {
+nav .btn-add-inactive:hover, nav .btn-query-inactive:hover {
   color: var(--btn-active-add);
 }
 
-.btn-add-active {
+.btn-add-active, .btn-query-active {
   color: var(--btn-add-active);
   border-bottom: 2px solid var(--btn-add-active);
 }
-.btn-add-inactive {
+.btn-add-inactive, .btn-query-inactive {
   color: var(--btn-add-inactive);
 }
 

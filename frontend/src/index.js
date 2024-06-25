@@ -3,13 +3,14 @@ import './style.css';
 
 
 const navHandler = (function(){
-  const {scheduleHandler, trainersHandler, membersHandler, addHandler} = listenerFactory();
+  const {scheduleHandler, trainersHandler, membersHandler, addHandler, queriesHandler} = listenerFactory();
   const {trainingFormHandler,trainerFormHandler, memberFormHandler} = formFactory();
 
   const scheduleBtn = document.querySelector('#schedule');
   const trainersBtn = document.querySelector('#trainers');
   const membersBtn = document.querySelector('#members');
   const addBtn = document.querySelector('#add');
+  const queriesBtn = document.querySelector('#queries');
 
   scheduleBtn.addEventListener('click', scheduleHandler);
   trainersBtn.addEventListener('click', trainersHandler);
@@ -25,4 +26,6 @@ const navHandler = (function(){
     addTrainer.addEventListener('click', trainerFormHandler);
     addMember.addEventListener('click', memberFormHandler);
   });
+  queriesBtn.addEventListener('click', queriesHandler);
+
 })();

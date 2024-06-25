@@ -7,6 +7,8 @@ import { createTrainingForm } from "../content/forms/createTrainingForm";
 import { createMemberForm } from "../content/forms/createMemberForm";
 import { createTrainerForm } from "../content/forms/createTrainerForm";
 
+import { createQueryNav } from "../content/queries/createQueryNav";
+
 const removeChildren = (parent) => {
   if (!parent) return;
   while (parent.firstChild) {
@@ -71,7 +73,18 @@ export const listenerFactory = () => {
     addContainer.appendChild(formContainer);
   };
 
-  return {scheduleHandler, trainersHandler, membersHandler, addHandler};
+  const queriesHandler = (event) => {
+    event.preventDefault();
+    swapActiveButton(event);
+    removeChildren(content);
+    
+    const queriesContainer = document.createElement('div');
+    queriesContainer.classList.add('query-container');
+    content.appendChild(queriesContainer);
+    createQueryNav();
+  };
+
+  return {scheduleHandler, trainersHandler, membersHandler, addHandler, queriesHandler};
 };
 
 
