@@ -3,6 +3,26 @@ import { getTrainers } from "../../requests/getTrainers.js";
 import { removeChildren } from "../../helpers/listenerFactory.js";
 import { formatDate } from "../../helpers/formatDate.js";
 
+const sortTrainings = (arr) => {
+  return arr.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    if (dateA - dateB !== 0) {
+      return dateA - dateB;
+    }
+
+    const timeA = a.start_time.split(":").map(Number);
+    const timeB = b.start_time.split(":").map(Number);
+
+    if (timeA[0] !== timeB[0]) {
+      return timeA[0] - timeB[0];
+    }
+
+    return timeA[1] - timeB[1];
+  });
+};
+
 export const trainingsTypeTable = async () => {
   const trainers = await getTrainers();  
   const resultsContainer = document.querySelector('.results-container');
@@ -48,7 +68,8 @@ export const trainingsTypeTable = async () => {
 
     const formData = new FormData(form);
     const type = formData.get('type');
-    const trainingsByType = await getTrainingsByType(type);
+    let trainingsByType = await getTrainingsByType(type);
+    trainingsByType = sortTrainings(trainingsByType);
 
     if (trainingsByType.length === 0) {
       const noResults = document.createElement('p');
@@ -82,7 +103,6 @@ export const trainingsTypeTable = async () => {
         const trainingTrainer = trainers.find(
           (trainer) => trainer._id === training.trainer
         );
-        console.log(trainingTrainer);
 
         const row = document.createElement('tr');
 
