@@ -1,10 +1,12 @@
-import { listenerFactory, formFactory } from "./modules/helpers/listenerFactory";
+import { listenerFactory, formFactory, queryFactory } from "./modules/helpers/listenerFactory";
 import './style.css';
 
 
 const navHandler = (function(){
   const {scheduleHandler, trainersHandler, membersHandler, addHandler, queriesHandler} = listenerFactory();
   const {trainingFormHandler,trainerFormHandler, memberFormHandler} = formFactory();
+
+  const { membersTrainingsHandler } = queryFactory();
 
   const scheduleBtn = document.querySelector('#schedule');
   const trainersBtn = document.querySelector('#trainers');
@@ -26,6 +28,13 @@ const navHandler = (function(){
     addTrainer.addEventListener('click', trainerFormHandler);
     addMember.addEventListener('click', memberFormHandler);
   });
-  queriesBtn.addEventListener('click', queriesHandler);
+  queriesBtn.addEventListener('click', (event) => {
+    queriesHandler(event);
+
+    const queryTrainings = document.querySelector('#member-trainings');
+    const queryDateTrainings = document.querySelector('#date-trainings');
+
+    queryTrainings.addEventListener('click', membersTrainingsHandler);
+  });
 
 })();

@@ -8,6 +8,7 @@ import { createMemberForm } from "../content/forms/createMemberForm";
 import { createTrainerForm } from "../content/forms/createTrainerForm";
 
 import { createQueryNav } from "../content/queries/createQueryNav";
+import { membersTrainingsTable } from "../content/queries/membersTrainingsTable";
 
 const removeChildren = (parent) => {
   if (!parent) return;
@@ -75,13 +76,17 @@ export const listenerFactory = () => {
 
   const queriesHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, 'btn-active', 'btn-inactive');
+    swapActiveButton(event, '.btn-query-active', '.btn-query-inactive');
     removeChildren(content);
     
     const queriesContainer = document.createElement('div');
     queriesContainer.classList.add('query-container');
     content.appendChild(queriesContainer);
     createQueryNav();
+
+    const resultsContainer = document.createElement('div');
+    resultsContainer.classList.add('results-container');
+    queriesContainer.appendChild(resultsContainer);
   };
 
   return {scheduleHandler, trainersHandler, membersHandler, addHandler, queriesHandler};
@@ -124,3 +129,18 @@ export const formFactory = () => {
 
   return {trainingFormHandler, trainerFormHandler, memberFormHandler};
 };
+
+export const queryFactory = () => {
+  const membersTrainingsHandler = (event) => {
+    const resultsContainer = document.querySelector('.results-container');
+    
+    event.preventDefault();
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
+    removeChildren(resultsContainer);
+    
+    membersTrainingsTable();
+  };
+
+
+  return {membersTrainingsHandler};
+}
