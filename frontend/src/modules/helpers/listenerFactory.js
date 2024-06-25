@@ -9,8 +9,9 @@ import { createTrainerForm } from "../content/forms/createTrainerForm";
 
 import { createQueryNav } from "../content/queries/createQueryNav";
 import { membersTrainingsTable } from "../content/queries/membersTrainingsTable";
+import { trainingsTypeTable } from "../content/queries/trainingsTypeTable";
 
-const removeChildren = (parent) => {
+export const removeChildren = (parent) => {
   if (!parent) return;
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -141,6 +142,16 @@ export const queryFactory = () => {
     membersTrainingsTable();
   };
 
+  const trainingsTypeHandler = (event) => {
+    const resultsContainer = document.querySelector('.results-container');
+    
+    event.preventDefault();
+    swapActiveButton(event, 'btn-query-active', 'btn-query-inactive');
+    removeChildren(resultsContainer);
+    
+    trainingsTypeTable();
+  };
 
-  return {membersTrainingsHandler};
+
+  return {membersTrainingsHandler, trainingsTypeHandler};
 }

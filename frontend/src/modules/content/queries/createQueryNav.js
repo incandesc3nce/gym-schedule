@@ -11,7 +11,7 @@ export const createQueryNav = () => {
   memberTrainingsBtn.setAttribute('id', 'member-trainings');
   
   const dateTrainingsBtn = document.createElement('button');
-  dateTrainingsBtn.textContent = 'Какие тренировки проводятся в определенную дату';
+  dateTrainingsBtn.textContent = 'Тренировки по видам';
   dateTrainingsBtn.classList.add('btn-query-inactive');
   dateTrainingsBtn.setAttribute('id', 'date-trainings');
 

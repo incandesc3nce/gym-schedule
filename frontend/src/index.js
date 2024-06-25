@@ -6,7 +6,7 @@ const navHandler = (function(){
   const {scheduleHandler, trainersHandler, membersHandler, addHandler, queriesHandler} = listenerFactory();
   const {trainingFormHandler,trainerFormHandler, memberFormHandler} = formFactory();
 
-  const { membersTrainingsHandler } = queryFactory();
+  const { membersTrainingsHandler, trainingsTypeHandler } = queryFactory();
 
   const scheduleBtn = document.querySelector('#schedule');
   const trainersBtn = document.querySelector('#trainers');
@@ -35,6 +35,7 @@ const navHandler = (function(){
     const queryDateTrainings = document.querySelector('#date-trainings');
 
     queryTrainings.addEventListener('click', membersTrainingsHandler);
+    queryDateTrainings.addEventListener('click', trainingsTypeHandler);
   });
 
 })();
