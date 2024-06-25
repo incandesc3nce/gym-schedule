@@ -17,7 +17,7 @@ const removeChildren = (parent) => {
   }
 };
 
-const getActiveButton = (activeClass) => document.querySelector(activeClass);
+const getActiveButton = (activeClass) => document.querySelector(`.${activeClass}`);
 
 const swapActiveButton = (event, activeClass, inactiveClass) => {
   const activeButton = getActiveButton(activeClass);
@@ -40,28 +40,28 @@ export const listenerFactory = () => {
   
   const scheduleHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, '.btn-active', '.btn-inactive');
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
     removeChildren(content);
     createTrainingsTable();
   };
 
   const trainersHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, '.btn-active', '.btn-inactive');
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
     removeChildren(content);
     createTrainersCards();
   };
 
   const membersHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, '.btn-active', '.btn-inactive');
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
     removeChildren(content);
     createMembersTable();
   };
 
   const addHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, '.btn-active', '.btn-inactive');
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
     removeChildren(content);
 
     const addContainer = document.createElement('div');
@@ -76,7 +76,7 @@ export const listenerFactory = () => {
 
   const queriesHandler = (event) => {
     event.preventDefault();
-    swapActiveButton(event, '.btn-query-active', '.btn-query-inactive');
+    swapActiveButton(event, 'btn-active', 'btn-inactive');
     removeChildren(content);
     
     const queriesContainer = document.createElement('div');
@@ -97,7 +97,7 @@ export const formFactory = () => {
     const formContainer = document.querySelector('#form-container');
 
     event.preventDefault();
-    swapActiveButton(event, '.btn-add-active', '.btn-add-inactive');
+    swapActiveButton(event, 'btn-add-active', 'btn-add-inactive');
     removeChildren(formContainer);
     const trainingForm = createTrainingForm();
     
@@ -108,7 +108,7 @@ export const formFactory = () => {
     const formContainer = document.querySelector('#form-container');
     
     event.preventDefault();
-    swapActiveButton(event, '.btn-add-active', '.btn-add-inactive');
+    swapActiveButton(event, 'btn-add-active', 'btn-add-inactive');
     removeChildren(formContainer);
     const memberForm = createMemberForm();
     
@@ -119,7 +119,7 @@ export const formFactory = () => {
     const formContainer = document.querySelector('#form-container');
     
     event.preventDefault();
-    swapActiveButton(event, '.btn-add-active', '.btn-add-inactive');
+    swapActiveButton(event, 'btn-add-active', 'btn-add-inactive');
     removeChildren(formContainer);
     const trainerForm = createTrainerForm();
 
@@ -135,7 +135,7 @@ export const queryFactory = () => {
     const resultsContainer = document.querySelector('.results-container');
     
     event.preventDefault();
-    swapActiveButton(event, 'btn-active', 'btn-inactive');
+    swapActiveButton(event, 'btn-query-active', 'btn-query-inactive');
     removeChildren(resultsContainer);
     
     membersTrainingsTable();
