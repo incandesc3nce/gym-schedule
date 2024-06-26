@@ -2,7 +2,6 @@ import { getMembersTrainings } from "../../requests/queries/membersTrainings";
 
 export const membersTrainingsTable = async () => {
   const membersTrainings = await getMembersTrainings();
-  console.log(membersTrainings);
   
   const resultsContainer = document.querySelector('.results-container');
   

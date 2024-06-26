@@ -92,7 +92,6 @@ export const createTrainingForm = () => {
   submit.addEventListener("click", async (event) => {
     event.preventDefault();
     const trainingObject = createTrainingObject(trainingForm);
-    console.log(trainingObject);
     await postTraining(trainingObject);
     trainingForm.reset();
 
